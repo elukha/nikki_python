@@ -1,27 +1,28 @@
 import tkinter as tk
-import login
+from login import login
+from tkinter import messagebox
 
-#ウィンドウの作成と、Tkinterオブジェクトの取得
 root = tk.Tk()
-
-#タイトル
-root.title("日記")
-
-#ウィンドウサイズ
+root.title("ログインする")
 width = 500
 height = 400
 root.geometry(f"{width}x{height}")
-if login.input():
-    print("pass")
-    
+
+#IDとパスワードを入力
+id_label = tk.Label(root, text="ID")
+id_label.pack()
+id_entry = tk.Entry(root)
+id_entry.pack()
+
+password_label = tk.Label(root ,text="password")
+password_label.pack()
+password_entry = tk.Entry(root)
+password_entry.pack()
+
+#ログインボタン
+but = tk.Button(text="ログイン", background="#00ff2f", command=login)
+but.pack()
+
+login(id_entry, password_entry)
+
 root.mainloop()
-
-
-login.input()
-
-status = login.check("check")
-if status:
-    print("成功")
-else:
-    print("失敗")
-
