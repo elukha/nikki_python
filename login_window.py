@@ -6,6 +6,7 @@ root = tk.Tk()
 
 #成功したか確認
 def fn_login(en1, en2):
+    global status
     id = en1.get()
     password = en2.get()
 
